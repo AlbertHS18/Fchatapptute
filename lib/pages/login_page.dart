@@ -1,9 +1,16 @@
+import 'package:fchatapptute/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 
 @override
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+
+   final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _pwController = TextEditingController();
+  
+   LoginPage({super.key});
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +37,29 @@ class LoginPage extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 50),
+        const SizedBox(height: 25),
+
         // email textfield
+        MyTextField(
+          hintText: "Email",
+          obscureText: false,
+          controller: _emailController,
+        ), 
+
+          const SizedBox(height: 10),
+
+        MyTextField(
+          hintText: "Password",
+          obscureText: true,
+          controller: _pwController,
+        ),
+
         //pw textfield
         //login button
+        
         // register now
 
-      ],
+      ]
       ),
     ),
     );
