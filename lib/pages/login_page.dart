@@ -18,41 +18,22 @@ class LoginPage extends StatelessWidget {
   Future<void> login(BuildContext context) async {
     final authService = AuthService();
 
-    final email = _emailController.text.trim();
-    final password = _pwController.text.trim();
-
-    // Validación básica
-    if (email.isEmpty || password.isEmpty) {
-      _showErrorDialog(context, 'Please fill in all fields');
-      return;
-    }
-
     // Intentar iniciar sesión
     try {
-      await authService.signInWithEmailPassword(email, password);
+      await authService.signInWithEmailPassword(
+        _emailController.text,
+        _pwController.text,
+      );
       // Éxito: Aquí podrías navegar a otra página
-    } on PlatformException catch (e) {
-      _showErrorDialog(context, e.message ?? 'An unknown error occurred');
     } catch (e) {
-      _showErrorDialog(context, 'Login failed. Please try again.');
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Login Failed'),
+          content: Text(e.toString()),
+        ),
+      );
     }
-  }
-
-  // Mostrar un diálogo de error
-  void _showErrorDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Login Error'),
-        content: Text(message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
