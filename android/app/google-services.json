@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "82273079310",
+    "project_id": "fchatapptute",
+    "storage_bucket": "fchatapptute.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82273079310:android:1dc77b2012237dff4cac5f",
+        "android_client_info": {
+          "package_name": "com.fchatapptute.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCmZzJL5tfLHPLkqn27v1hHQ2oUhhtD-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
