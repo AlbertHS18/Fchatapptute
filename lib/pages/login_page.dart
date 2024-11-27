@@ -1,3 +1,4 @@
+import 'package:fchatapptute/components/my_button.dart';
 import 'package:fchatapptute/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,9 @@ class LoginPage extends StatelessWidget {
     final TextEditingController _pwController = TextEditingController();
   
    LoginPage({super.key});
+
+   //login method
+   void login(){}
 
  
 
@@ -48,18 +52,43 @@ class LoginPage extends StatelessWidget {
 
           const SizedBox(height: 10),
 
+        //pw textfield
         MyTextField(
           hintText: "Password",
           obscureText: true,
           controller: _pwController,
         ),
 
-        //pw textfield
-        //login button
-        
-        // register now
+        const SizedBox(height: 25),
 
-      ]
+        
+        //login button
+        MyButton(
+        text: "Login",
+        onTap: login,
+        ),
+
+        const SizedBox(height: 25),
+
+
+        // register now
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Not a member?",
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
+            Text(
+              "Register now", 
+              style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.primary),
+              ),
+          ],
+        )
+
+      ],
       ),
     ),
     );
