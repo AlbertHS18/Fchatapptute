@@ -1,21 +1,45 @@
+import 'package:fchatapptute/auth/auth_service.dart';
 import 'package:fchatapptute/components/my_button.dart';
 import 'package:fchatapptute/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 
 @override
+// ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
         //email and pw controllers
    final TextEditingController _emailController = TextEditingController();
    final TextEditingController _pwController = TextEditingController();
   
     //tap to go to register page
-    void Function()? onTap;
+    final void Function()? onTap;
   
    LoginPage({super.key, required this.onTap});
 
    //login method
-   void login(){}
+   void login(BuildContext context) async{
+    // get service
+    final authService = AuthService();
+
+    // try login
+    try{
+      await authService.signInWithEmailPassword(
+        _emailController.text,
+        _pwController.text,
+      );
+    }
+
+    // catch any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+
+   }
 
  
 
@@ -67,9 +91,9 @@ class LoginPage extends StatelessWidget {
         
         //login button
         MyButton(
-        text: "Login",
-        onTap: login,
-        ),
+          text: "Login",
+          onTap: () => login(context),
+        ), //MyButton
 
         const SizedBox(height: 25),
 
@@ -94,9 +118,11 @@ class LoginPage extends StatelessWidget {
           ],
         )
 
-      ],
+        ]
       ),
-    ),
+      
+      )
     );
+    
   }
 }
