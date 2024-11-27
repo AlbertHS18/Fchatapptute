@@ -1,4 +1,5 @@
 
+import 'package:fchatapptute/auth/auth_gate.dart';
 import 'package:fchatapptute/firebase_options.dart';
 import 'package:fchatapptute/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: const AuthGate(),
       theme: lightMode,
     );
   }
