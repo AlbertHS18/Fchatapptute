@@ -1,4 +1,4 @@
-import 'package:fchatapptute/auth/auth_service.dart';
+import 'package:fchatapptute/services/auth/auth_service.dart';
 import 'package:fchatapptute/components/my_button.dart';
 import 'package:fchatapptute/components/my_textfield.dart';
 import 'package:flutter/material.dart';
