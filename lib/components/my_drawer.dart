@@ -1,4 +1,4 @@
-import 'package:fchatapptute/auth/auth_service.dart';
+import 'package:fchatapptute/services/auth/auth_service.dart';
 import 'package:fchatapptute/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
