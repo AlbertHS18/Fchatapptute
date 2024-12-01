@@ -47,9 +47,23 @@ class ChatService{
                     .collection("messages")
                     .add(newMessage.toMap());
             }
+              //get messages
+              Stream<QuerySnapshot>getMessages(String userID, otherUserID) {
+                List<String> ids = [userID, otherUserID];
+                ids.sort();
+                String chatRoomID = ids.join('_');
 
-                      //get messages
+                return _firestore
+                  .collection("chat_rooms")
+                    .doc(chatRoomID)
+                    .collection("messages")
+                    .orderBy("timestamp", descending: false)
+                    .snapshots();
 
+                    
+              }
+
+                      
   }
 
 
