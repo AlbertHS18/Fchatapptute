@@ -43,6 +43,10 @@ class ChatPage extends StatelessWidget{
                   Expanded(
                     child: _buildMessageList(),
                  ), // Expanded
+
+                  // user input
+                  _builUserInput(),
+                  
               ],
             ),
         );
@@ -74,7 +78,7 @@ class ChatPage extends StatelessWidget{
 
         return Text(data["message"]);
       }
-            
+
       Widget _builUserInput(){
         return Row(
           children: [
