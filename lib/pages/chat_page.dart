@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fchatapptute/components/chat_bubble.dart';
 import 'package:fchatapptute/components/my_textfield.dart';
 import 'package:fchatapptute/services/auth/auth_service.dart';
 import 'package:fchatapptute/services/chat/chat_service.dart';
@@ -80,25 +81,31 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageItem(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        padding: const EdgeInsets.all(12.0),
-        decoration: BoxDecoration(
-          color: Colors.blue.shade100,
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Text(
-          data["message"],
-          style: const TextStyle(fontSize: 16),
-        ),
+    bool isCurrentUser = data['senderID'] == _authService.getCurrentUser()!.uid;
+
+    var alignment =
+      isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
+
+
+    return Container(
+      alignment: alignment,
+      child: Column(
+        crossAxisAlignment: 
+            isCurrentUser ?  CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: [
+              ChatBubble(
+                message: data["message"], 
+                isCurrentUser: isCurrentUser,
+                )
+            ],
       ),
     );
+
   }
 
   Widget _buildUserInput() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(bottom: 50.0),
       child: Row(
         children: [
           // Campo de texto para escribir mensajes
@@ -111,9 +118,18 @@ class ChatPage extends StatelessWidget {
           ),
 
           // Botón para enviar el mensaje
-          IconButton(
-            onPressed: sendMessage,
-            icon: const Icon(Icons.arrow_upward),
+          Container(
+            decoration: const BoxDecoration(color: Colors.green,
+            shape: BoxShape.circle,
+            ),
+            margin: const EdgeInsets.only(right: 25),
+            child: IconButton(
+              onPressed: sendMessage,
+              icon: const Icon(
+                Icons.arrow_upward,
+                color: Colors.white,
+                ),
+            ),
           ),
         ],
       ),
