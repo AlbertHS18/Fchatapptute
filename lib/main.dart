@@ -4,7 +4,6 @@ import 'package:fchatapptute/firebase_options.dart';
 import 'package:fchatapptute/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'services/auth/login_or_register.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
