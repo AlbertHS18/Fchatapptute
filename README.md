@@ -61,10 +61,14 @@ Primero, clona el repositorio del proyecto:
 git clone https://github.com/AlbertHS18/FChatAppTute.git
 cd FChatAppTute
 <<<<<<< HEAD
+<<<<<<< HEAD
 ```
 =======
 
 >>>>>>> 8ccc1932e50d144afc5ec7c2378e032c2385cedc
+=======
+```
+>>>>>>> e6e2d7c1617d654fce693079dd93aa87346830b8
 
 
 - Video explicando la App:
