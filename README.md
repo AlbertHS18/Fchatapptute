@@ -60,3 +60,13 @@ Primero, clona el repositorio del proyecto:
 ```bash
 git clone https://github.com/AlbertHS18/FChatAppTute.git
 cd FChatAppTute
+```
+
+
+- Video explicando la App:
+
+```bash
+    https://drive.google.com/file/d/1IA1OMjm1y1xRHaexOi8eGzNeM8RG8p99/view?usp=drive_link
+
+```
+
